@@ -1,0 +1,52 @@
+*{
+	box-sizing: border-box;
+}
+.clock{
+	width: 400px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	background-color: #333;
+	position: relative;
+	padding: 2%;
+	background-image: url('back.jpeg');
+	background-repeat: no-repeat;
+	background-origin: center center;
+	background-size: 400px;
+}
+.arrow1,
+.arrow2,
+.arrow3{
+	position: absolute;
+	height: 45%;
+	width: 10px;
+	border-radius: 3px;
+	margin-left: auto;
+	margin-right: auto;
+	transform-origin: center bottom;
+	left: 49.34895833333333%;
+	bottom: 50%;
+}
+.arrow1{
+	background-color: #555;
+	z-index: 10;
+}
+.arrow2{
+	background-color: #d2a;
+	height: 40%;
+}
+.arrow3{
+	background-color: #0ff;
+	height: 30%;
+}
+.round {
+	position: absolute;
+	top: 47.5%;
+	left: 47.5%;
+	z-index: 20;
+	background-color: #555;
+	width: 5%;
+	height: 5%;
+	border-radius: 50%;
+}
