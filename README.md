@@ -1,3 +1,3 @@
-### h3 The simple Javascript clock.
+### The simple Javascript clock.
 
-[Run the example](https://morsko1.github.io/clock01)
+[Run example](https://morsko1.github.io/clock01)
