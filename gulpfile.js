@@ -1,61 +1,69 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var watch = require('gulp-watch');
-var plumber = require('gulp-plumber');
+var gulp = require('gulp'),
+	open = require('gulp-open'),
+	connect = require('gulp-connect');
 
-//Browser-sync
-gulp.task('browser-sync', function() {
-	browserSync({
-		server: {
-			baseDir: './'
+//CONFIG
+var config = {
+	path: {
+		src: {
+			html: './*.html',
+			css: './*.css',
+			js: './*js'
 		},
-		notify: false
-	});
-});
+		dist: './'
+	},
+	localServer: {
+		port: 8001,
+		url: 'http://localhost:8001/'
+	}
+};
 
 // HTML
 gulp.task('html', function() {
-	return gulp
-	src('index.html')
-	pipe(plumber())
-	pipe(browserSync.reload({stream: true}))
+	gulp.src(config.path.src.html)
+	.pipe(connect.reload());
 });
 
-//Styles
-gulp.task('style', function(){
-	return gulp
-	src('style.css')
-	pipe(plumber())
-	pipe(browserSync.reload({stream: true}))
+// CSS
+gulp.task('css', function () {
+	gulp.src(config.path.src.css)
+	.pipe(connect.reload());
 });
 
-// Scripts
-gulp.task('js', function() {
-	return gulp
-	src('main.js')
-	pipe(plumber())
-	pipe(browserSync.reload({stream: true}))
+// JS
+gulp.task('js', function () {
+	gulp.src(config.path.src.js)
+	.pipe(connect.reload());
 });
 
-//Build
+// CONNECT
+gulp.task('connect', function () {
+	connect.server({
+		root: './',
+		port: config.localServer.port,
+		livereload: true
+	});
+});
+
+// BUILD
 gulp.task('build', [
 	'html',
-	'style',
+	'css',
 	'js'
 ]);
 
-// Watch
-gulp.task('watch', function(){
-	watch('index.html', function(event, cb) {
-		gulp.start('html');
-	});
-	watch('style.css', function(event, cb) {
-		gulp.start('style');
-	});
-	watch('main.js', function(event, cb) {
-		gulp.start('js');
-	});;
+// OPEN
+gulp.task('open', function(){
+	gulp.src('index.html')
+	.pipe(open({uri: config.localServer.url}));
 });
 
-// Default task
-gulp.task('default',['build', 'browser-sync', 'watch']);
+// WATCH
+gulp.task('watch', function () {
+	gulp.watch(config.path.src.html, ['html']);
+	gulp.watch(config.path.src.css, ['css']);
+	gulp.watch(config.path.src.js, ['js']);
+});
+
+// DEFAULT
+gulp.task('default', ['build', 'connect', 'open', 'watch']);

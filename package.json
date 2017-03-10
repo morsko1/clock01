@@ -9,9 +9,8 @@
   "author": "morsko1",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "*",
     "gulp": "*",
-    "gulp-plumber": "*",
-    "gulp-watch": "*"
+    "gulp-open": "*",
+    "gulp-connect": "*"
   }
 }
