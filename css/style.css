@@ -10,15 +10,14 @@
 	background-color: #333;
 	position: relative;
 	padding: 2%;
-	background-image: url('back.jpeg');
+	background-image: url('../back.jpeg'); 
 	background-repeat: no-repeat;
 	background-origin: center center;
 	background-size: 400px;
-	/*box-shadow: 0 0 3px 3px #555;*/
 }
-.arrow1,
-.arrow2,
-.arrow3{
+.arrow-sec,
+.arrow-min,
+.arrow-hour{
 	position: absolute;
 	height: 45%;
 	width: 10px;
@@ -29,15 +28,15 @@
 	left: 49.34895833333333%;
 	bottom: 50%;
 }
-.arrow1{
+.arrow-sec{
 	background-color: #555;
 	z-index: 10;
 }
-.arrow2{
+.arrow-min{
 	background-color: #d2a;
 	height: 40%;
 }
-.arrow3{
+.arrow-hour{
 	background-color: #0ff;
 	height: 30%;
 }
@@ -50,4 +49,16 @@
 	width: 5%;
 	height: 5%;
 	border-radius: 50%;
+}
+.button{
+	width: 10em;
+	font-size: 1.5em;
+	margin: 0.5em auto;
+	background-color: #333;
+	color: #aaa;
+	padding: 0.5em;
+	text-align: center;
+	border-radius: 0.5em;
+	cursor: pointer;
+	user-select: none;
 }

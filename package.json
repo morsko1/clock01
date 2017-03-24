@@ -9,8 +9,12 @@
   "author": "morsko1",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "*",
     "gulp": "*",
+    "gulp-connect": "*",
     "gulp-open": "*",
-    "gulp-connect": "*"
+    "gulp-sourcemaps": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
   }
 }
