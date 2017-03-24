@@ -50,7 +50,7 @@ gulp.task('browserify', function() {
 	.pipe(buffer())
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('./js/'))
+	.pipe(gulp.dest('./'))
 	.pipe(connect.reload());
 });
 
